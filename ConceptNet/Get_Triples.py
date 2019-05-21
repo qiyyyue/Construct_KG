@@ -108,8 +108,9 @@ class Get_Triples():
             entities.append(s)
         return triples, entities
 
-if __name__ == 'main':
-    hop_num = 3
-    g_t = Get_Triples(hop_num)
-    g_t.get_next_hop_data()
-    g_t.save_data()
+if __name__ == '__main__':
+    for hop_num in range(3, 6):
+        g_t = Get_Triples(hop_num)
+        g_t.get_next_hop_data()
+        g_t.save_data()
+
