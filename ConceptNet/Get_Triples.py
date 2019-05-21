@@ -17,17 +17,17 @@ class Get_Triples():
         _org_entities = []
         _org_relations = []
         _org_triples = []
-        with open('entities_hop_{}'.format(self.hop_num - 1), 'r') as rf:
+        with open('entities_hop_{}.txt'.format(self.hop_num - 1), 'r') as rf:
             for line in rf:
                 _org_entities.append(line.strip())
             rf.close()
 
-        with open('relations_hop_{}'.format(self.hop_num - 1), 'r') as rf:
+        with open('relations_hop_{}.txt'.format(self.hop_num - 1), 'r') as rf:
             for line in rf:
                 _org_relations.append(line.strip())
             rf.close()
 
-        with open('triples_hop_{}'.format(self.hop_num - 1), 'r') as rf:
+        with open('triples_hop_{}.txt'.format(self.hop_num - 1), 'r') as rf:
             for line in rf:
                 _org_triples.append(line.strip().split())
             rf.close()
