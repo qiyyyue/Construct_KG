@@ -1,0 +1,159 @@
+  display_name: "person"
+
+  display_name: "bicycle"
+
+  display_name: "car"
+
+  display_name: "motorcycle"
+
+  display_name: "airplane"
+
+  display_name: "bus"
+
+  display_name: "train"
+
+  display_name: "truck"
+
+  display_name: "boat"
+
+  display_name: "traffic light"
+
+  display_name: "fire hydrant"
+
+  display_name: "stop sign"
+
+  display_name: "parking meter"
+
+  display_name: "bench"
+
+  display_name: "bird"
+
+  display_name: "cat"
+
+  display_name: "dog"
+
+  display_name: "horse",
+
+  display_name: "sheep"
+
+  display_name: "cow"
+
+  display_name: "elephant"
+
+  display_name: "bear"
+
+  display_name: "zebra"
+
+  display_name: "giraffe"
+
+  display_name: "backpack"
+
+  display_name: "umbrella"
+
+  display_name: "handbag"
+
+  display_name: "tie"
+
+  display_name: "suitcase"
+
+  display_name: "frisbee"
+
+  display_name: "skis"
+
+  display_name: "snowboard"
+
+  display_name: "sports ball"
+
+  display_name: "kite"
+
+  display_name: "baseball bat"
+
+  display_name: "baseball glove"
+
+  display_name: "skateboard"
+
+  display_name: "surfboard"
+
+  display_name: "tennis racket"
+
+  display_name: "bottle"
+
+  display_name: "wine glass"
+
+  display_name: "cup"
+
+  display_name: "fork"
+
+  display_name: "knife"
+
+  display_name: "spoon"
+
+  display_name: "bowl"
+
+  display_name: "banana"
+
+  display_name: "apple"
+
+  display_name: "sandwich"
+
+  display_name: "orange"
+
+  display_name: "broccoli"
+
+  display_name: "carrot"
+
+  display_name: "hot dog"
+
+  display_name: "pizza"
+
+  display_name: "donut"
+
+  display_name: "cake"
+
+  display_name: "chair"
+
+  display_name: "couch"
+
+  display_name: "potted plant"
+
+  display_name: "bed"
+
+  display_name: "dining table"
+
+  display_name: "toilet"
+
+  display_name: "tv"
+
+  display_name: "laptop"
+
+  display_name: "mouse"
+
+  display_name: "remote"
+
+  display_name: "keyboard"
+
+  display_name: "cell phone"
+
+  display_name: "microwave"
+
+  display_name: "oven"
+
+  display_name: "toaster"
+
+  display_name: "sink"
+
+  display_name: "refrigerator"
+
+  display_name: "book"
+
+  display_name: "clock"
+
+  display_name: "vase"
+
+  display_name: "scissors"
+
+  display_name: "teddy bear"
+
+  display_name: "hair drier"
+
+  display_name: "toothbrush"

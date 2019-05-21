@@ -1,0 +1,17 @@
+UsedFor
+NotDesires
+HasA
+HasPrerequisite
+MannerOf
+SimilarTo
+AtLocation
+PartOf
+Synonym
+RelatedTo
+HasProperty
+IsA
+Desires
+HasSubevent
+DistinctFrom
+CapableOf
+MotivatedByGoal
