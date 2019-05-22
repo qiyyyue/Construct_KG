@@ -29,7 +29,8 @@ class Get_Triples():
 
         with open('triples_hop_{}.txt'.format(self.hop_num - 1), 'r') as rf:
             for line in rf:
-                _org_triples.append(line.strip().split())
+                s, p, o = line.strip().split()
+                _org_triples.append((s, p, o))
             rf.close()
 
         self.org_entities = _org_entities
@@ -42,14 +43,11 @@ class Get_Triples():
     def get_next_hop_data(self):
 
         new_triples = []
-        new_entities = []
-        for entity in self.org_entities:
-            _new_triples, _new_entities = self.req_triples(entity)
-            new_triples += _new_triples
-            new_entities += _new_entities
+        for i, entity in enumerate(self.org_entities):
+            print('get {}/{} : {}'.format(i, len(self.org_entities), entity))
+            new_triples += self.req_triples(entity)
 
         self.new_triples = set(new_triples)
-        self.new_entities = set(new_entities)
 
     '''
     存储
@@ -87,7 +85,6 @@ class Get_Triples():
 
     def req_triples(self, entity):
         triples = []
-        entities = []
 
         ent = requests.get('http://api.conceptnet.io/c/en/{}'.format(entity)).json()
 
@@ -96,20 +93,24 @@ class Get_Triples():
             ent = requests.get('http://api.conceptnet.io/c/en/{}'.format(entity)).json()
 
         for edge in ent['edges']:
-            org_triple = edge['@id'].split('[')[1].replace(']', '')
-            org_p, org_s, org_o = org_triple.split(',')
-            if org_s.split('/')[2] != 'en' or org_o.split('/')[2] != 'en':
-                continue
-            s = org_s.split('/')[3]
-            p = org_p.split('/')[2]
-            o = org_o.split('/')[3]
-            triples.append([s, p, o])
-            entities.append(o)
-            entities.append(s)
-        return triples, entities
+            try:
+                org_triple = edge['@id'].split('[')[1].replace(']', '')
+                org_p, org_s, org_o = org_triple.split(',')
+                if org_s.split('/')[2] != 'en' or org_o.split('/')[2] != 'en':
+                    continue
+                s = org_s.split('/')[3]
+                p = org_p.split('/')[2]
+                o = org_o.split('/')[3]
+                triples.append((s, p, o))
+            except  Exception as e:
+                print('erro:' + str(e))
+                print(edge)
+                pass
+        return triples
 
 if __name__ == '__main__':
     for hop_num in range(3, 6):
+        print('hop_num: {}'.format(hop_num))
         g_t = Get_Triples(hop_num)
         g_t.get_next_hop_data()
         g_t.save_data()
