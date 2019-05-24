@@ -47,7 +47,42 @@ class Get_Triples():
             print('get {}/{} : {}'.format(i, len(self.org_entities), entity))
             new_triples += self.req_triples(entity)
 
+            if i%1000 == 0:
+                print('save {}'.format(i))
+                self.save_tmp_data(new_triples)
+
         self.new_triples = set(new_triples)
+
+    def save_tmp_data(self, triples):
+        triples = set(self.org_triples) | set(triples)
+        entities = self.org_entities
+        relations = self.org_relations
+        for s, p, o in triples:
+            entities.append(s)
+            entities.append(o)
+            relations.append(p)
+
+        triples = list(set(triples))
+        entities = list(set(entities))
+        relations = list(set(relations))
+
+        with open('triples_hop_{}_tmp.txt'.format(self.hop_num), 'a+', encoding='utf8') as f_t:
+            for s, p, o in triples:
+                f_t.write('{}\t{}\t{}\n'.format(s, p, o))
+            f_t.flush()
+            f_t.close()
+
+        with open('entities_hop_{}_tmp.txt'.format(self.hop_num), 'a+', encoding='utf8') as f_t:
+            for entity in entities:
+                f_t.write('{}\n'.format(entity))
+            f_t.flush()
+            f_t.close()
+
+        with open('relations_hop_{}_tmp.txt'.format(self.hop_num), 'a+', encoding='utf8') as f_t:
+            for relation in relations:
+                f_t.write('{}\n'.format(relation))
+            f_t.flush()
+            f_t.close()
 
     '''
     存储
@@ -109,7 +144,7 @@ class Get_Triples():
         return triples
 
 if __name__ == '__main__':
-    for hop_num in range(3, 6):
+    for hop_num in range(4, 6):
         print('hop_num: {}'.format(hop_num))
         g_t = Get_Triples(hop_num)
         g_t.get_next_hop_data()
