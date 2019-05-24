@@ -44,9 +44,17 @@ class Get_Triples():
 
         new_triples = []
         for i, entity in enumerate(self.org_entities):
+
+            #下一次开始位置
+            last_i = -1
+            if i <= last_i:
+                continue
+            #
+
             print('get {}/{} : {}'.format(i, len(self.org_entities), entity))
             new_triples += self.req_triples(entity)
 
+            # 每1K实体存储一次，下一次手动设置从i开始
             if i%1000 == 0:
                 print('save {}'.format(i))
                 self.save_tmp_data(new_triples)
