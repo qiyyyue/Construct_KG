@@ -43,6 +43,8 @@ class Get_Triples():
     def get_next_hop_data(self):
 
         new_triples = []
+        tmp_new_triples = [] #三元组缓存
+
         for i, entity in enumerate(self.org_entities):
 
             #下一次开始位置
@@ -52,12 +54,15 @@ class Get_Triples():
             #
 
             print('get {}/{} : {}'.format(i, len(self.org_entities), entity))
-            new_triples += self.req_triples(entity)
+            _new_triples = self.req_triples(entity)
+            new_triples += _new_triples
+            tmp_new_triples += _new_triples
 
             # 每1K实体存储一次，下一次手动设置从i开始
             if i%1000 == 0:
                 print('save {}'.format(i))
-                self.save_tmp_data(new_triples)
+                self.save_tmp_data(tmp_new_triples)
+                tmp_new_triples = []
 
         self.new_triples = set(new_triples)
 
