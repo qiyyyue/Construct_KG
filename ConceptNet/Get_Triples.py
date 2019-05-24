@@ -47,7 +47,7 @@ class Get_Triples():
 
         for i, entity in enumerate(self.org_entities):
 
-            #下一次开始位置
+            #下一次开始位置,手动设置last_i
             last_i = -1
             if i <= last_i:
                 continue
