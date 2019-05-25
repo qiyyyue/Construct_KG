@@ -68,8 +68,8 @@ class Get_Triples():
 
     def save_tmp_data(self, triples):
         triples = set(self.org_triples) | set(triples)
-        entities = self.org_entities
-        relations = self.org_relations
+        entities = [] + self.org_entities
+        relations = [] + self.org_relations
         for s, p, o in triples:
             entities.append(s)
             entities.append(o)
